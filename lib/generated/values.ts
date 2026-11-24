@@ -1,0 +1,896 @@
+// Compatibility declarations captured from build123d 0.13.0; checked against docs/api-inventory.json.
+import { createSymbol } from "./runtime"
+import type { NativeCallValue } from "./runtime"
+import type { NativeHandle } from "../client"
+import type { NativeSymbolFactory, NativeVectorLike, NativeRotationLike } from "../native-types"
+import type { NativeCallableMap, NativeClassMap } from "./api-types"
+export { expr } from "./runtime"
+export const Align = Object.freeze({
+  "MIN": {
+    "$enum": "Align.MIN"
+  },
+  "CENTER": {
+    "$enum": "Align.CENTER"
+  },
+  "MAX": {
+    "$enum": "Align.MAX"
+  },
+  "NONE": {
+    "$enum": "Align.NONE"
+  }
+} as const)
+export const ApproxOption = Object.freeze({
+  "ARC": {
+    "$enum": "ApproxOption.ARC"
+  },
+  "NONE": {
+    "$enum": "ApproxOption.NONE"
+  },
+  "SPLINE": {
+    "$enum": "ApproxOption.SPLINE"
+  }
+} as const)
+export const AngularDirection = Object.freeze({
+  "CLOCKWISE": {
+    "$enum": "AngularDirection.CLOCKWISE"
+  },
+  "COUNTER_CLOCKWISE": {
+    "$enum": "AngularDirection.COUNTER_CLOCKWISE"
+  }
+} as const)
+export const CenterOf = Object.freeze({
+  "GEOMETRY": {
+    "$enum": "CenterOf.GEOMETRY"
+  },
+  "MASS": {
+    "$enum": "CenterOf.MASS"
+  },
+  "BOUNDING_BOX": {
+    "$enum": "CenterOf.BOUNDING_BOX"
+  }
+} as const)
+export const ContinuityLevel = Object.freeze({
+  "C0": {
+    "$enum": "ContinuityLevel.C0"
+  },
+  "C1": {
+    "$enum": "ContinuityLevel.C1"
+  },
+  "C2": {
+    "$enum": "ContinuityLevel.C2"
+  }
+} as const)
+export const Convexity = Object.freeze({
+  "CONVEX": {
+    "$enum": "Convexity.CONVEX"
+  },
+  "CONCAVE": {
+    "$enum": "Convexity.CONCAVE"
+  },
+  "SMOOTH": {
+    "$enum": "Convexity.SMOOTH"
+  },
+  "SADDLE": {
+    "$enum": "Convexity.SADDLE"
+  }
+} as const)
+export const Extrinsic = Object.freeze({
+  "XYZ": {
+    "$enum": "Extrinsic.XYZ"
+  },
+  "XZY": {
+    "$enum": "Extrinsic.XZY"
+  },
+  "YZX": {
+    "$enum": "Extrinsic.YZX"
+  },
+  "YXZ": {
+    "$enum": "Extrinsic.YXZ"
+  },
+  "ZXY": {
+    "$enum": "Extrinsic.ZXY"
+  },
+  "ZYX": {
+    "$enum": "Extrinsic.ZYX"
+  },
+  "XYX": {
+    "$enum": "Extrinsic.XYX"
+  },
+  "XZX": {
+    "$enum": "Extrinsic.XZX"
+  },
+  "YZY": {
+    "$enum": "Extrinsic.YZY"
+  },
+  "YXY": {
+    "$enum": "Extrinsic.YXY"
+  },
+  "ZXZ": {
+    "$enum": "Extrinsic.ZXZ"
+  },
+  "ZYZ": {
+    "$enum": "Extrinsic.ZYZ"
+  }
+} as const)
+export const FontStyle = Object.freeze({
+  "REGULAR": {
+    "$enum": "FontStyle.REGULAR"
+  },
+  "BOLD": {
+    "$enum": "FontStyle.BOLD"
+  },
+  "ITALIC": {
+    "$enum": "FontStyle.ITALIC"
+  },
+  "BOLDITALIC": {
+    "$enum": "FontStyle.BOLDITALIC"
+  }
+} as const)
+export const FrameMethod = Object.freeze({
+  "FRENET": {
+    "$enum": "FrameMethod.FRENET"
+  },
+  "CORRECTED": {
+    "$enum": "FrameMethod.CORRECTED"
+  }
+} as const)
+export const GeomType = Object.freeze({
+  "PLANE": {
+    "$enum": "GeomType.PLANE"
+  },
+  "CYLINDER": {
+    "$enum": "GeomType.CYLINDER"
+  },
+  "CONE": {
+    "$enum": "GeomType.CONE"
+  },
+  "SPHERE": {
+    "$enum": "GeomType.SPHERE"
+  },
+  "TORUS": {
+    "$enum": "GeomType.TORUS"
+  },
+  "BEZIER": {
+    "$enum": "GeomType.BEZIER"
+  },
+  "BSPLINE": {
+    "$enum": "GeomType.BSPLINE"
+  },
+  "REVOLUTION": {
+    "$enum": "GeomType.REVOLUTION"
+  },
+  "EXTRUSION": {
+    "$enum": "GeomType.EXTRUSION"
+  },
+  "OFFSET": {
+    "$enum": "GeomType.OFFSET"
+  },
+  "LINE": {
+    "$enum": "GeomType.LINE"
+  },
+  "CIRCLE": {
+    "$enum": "GeomType.CIRCLE"
+  },
+  "ELLIPSE": {
+    "$enum": "GeomType.ELLIPSE"
+  },
+  "HYPERBOLA": {
+    "$enum": "GeomType.HYPERBOLA"
+  },
+  "PARABOLA": {
+    "$enum": "GeomType.PARABOLA"
+  },
+  "OTHER": {
+    "$enum": "GeomType.OTHER"
+  }
+} as const)
+export const HeadType = Object.freeze({
+  "STRAIGHT": {
+    "$enum": "HeadType.STRAIGHT"
+  },
+  "CURVED": {
+    "$enum": "HeadType.CURVED"
+  },
+  "FILLETED": {
+    "$enum": "HeadType.FILLETED"
+  }
+} as const)
+export const Intrinsic = Object.freeze({
+  "XYZ": {
+    "$enum": "Intrinsic.XYZ"
+  },
+  "XZY": {
+    "$enum": "Intrinsic.XZY"
+  },
+  "YZX": {
+    "$enum": "Intrinsic.YZX"
+  },
+  "YXZ": {
+    "$enum": "Intrinsic.YXZ"
+  },
+  "ZXY": {
+    "$enum": "Intrinsic.ZXY"
+  },
+  "ZYX": {
+    "$enum": "Intrinsic.ZYX"
+  },
+  "XYX": {
+    "$enum": "Intrinsic.XYX"
+  },
+  "XZX": {
+    "$enum": "Intrinsic.XZX"
+  },
+  "YZY": {
+    "$enum": "Intrinsic.YZY"
+  },
+  "YXY": {
+    "$enum": "Intrinsic.YXY"
+  },
+  "ZXZ": {
+    "$enum": "Intrinsic.ZXZ"
+  },
+  "ZYZ": {
+    "$enum": "Intrinsic.ZYZ"
+  }
+} as const)
+export const Keep = Object.freeze({
+  "ALL": {
+    "$enum": "Keep.ALL"
+  },
+  "BOTTOM": {
+    "$enum": "Keep.BOTTOM"
+  },
+  "BOTH": {
+    "$enum": "Keep.BOTH"
+  },
+  "INSIDE": {
+    "$enum": "Keep.INSIDE"
+  },
+  "OUTSIDE": {
+    "$enum": "Keep.OUTSIDE"
+  },
+  "TOP": {
+    "$enum": "Keep.TOP"
+  }
+} as const)
+export const Kind = Object.freeze({
+  "ARC": {
+    "$enum": "Kind.ARC"
+  },
+  "INTERSECTION": {
+    "$enum": "Kind.INTERSECTION"
+  },
+  "TANGENT": {
+    "$enum": "Kind.TANGENT"
+  }
+} as const)
+export const Sagitta = Object.freeze({
+  "SHORT": {
+    "$enum": "Sagitta.SHORT"
+  },
+  "LONG": {
+    "$enum": "Sagitta.LONG"
+  },
+  "BOTH": {
+    "$enum": "Sagitta.BOTH"
+  }
+} as const)
+export const LengthMode = Object.freeze({
+  "DIAGONAL": {
+    "$enum": "LengthMode.DIAGONAL"
+  },
+  "HORIZONTAL": {
+    "$enum": "LengthMode.HORIZONTAL"
+  },
+  "VERTICAL": {
+    "$enum": "LengthMode.VERTICAL"
+  }
+} as const)
+export const MeshType = Object.freeze({
+  "OTHER": {
+    "$enum": "MeshType.OTHER"
+  },
+  "MODEL": {
+    "$enum": "MeshType.MODEL"
+  },
+  "SUPPORT": {
+    "$enum": "MeshType.SUPPORT"
+  },
+  "SOLIDSUPPORT": {
+    "$enum": "MeshType.SOLIDSUPPORT"
+  }
+} as const)
+export const Mode = Object.freeze({
+  "ADD": {
+    "$enum": "Mode.ADD"
+  },
+  "SUBTRACT": {
+    "$enum": "Mode.SUBTRACT"
+  },
+  "INTERSECT": {
+    "$enum": "Mode.INTERSECT"
+  },
+  "REPLACE": {
+    "$enum": "Mode.REPLACE"
+  },
+  "PRIVATE": {
+    "$enum": "Mode.PRIVATE"
+  }
+} as const)
+export const NumberDisplay = Object.freeze({
+  "DECIMAL": {
+    "$enum": "NumberDisplay.DECIMAL"
+  },
+  "FRACTION": {
+    "$enum": "NumberDisplay.FRACTION"
+  }
+} as const)
+export const PageSize = Object.freeze({
+  "A0": {
+    "$enum": "PageSize.A0"
+  },
+  "A1": {
+    "$enum": "PageSize.A1"
+  },
+  "A2": {
+    "$enum": "PageSize.A2"
+  },
+  "A3": {
+    "$enum": "PageSize.A3"
+  },
+  "A4": {
+    "$enum": "PageSize.A4"
+  },
+  "A5": {
+    "$enum": "PageSize.A5"
+  },
+  "A6": {
+    "$enum": "PageSize.A6"
+  },
+  "A7": {
+    "$enum": "PageSize.A7"
+  },
+  "A8": {
+    "$enum": "PageSize.A8"
+  },
+  "A9": {
+    "$enum": "PageSize.A9"
+  },
+  "A10": {
+    "$enum": "PageSize.A10"
+  },
+  "LETTER": {
+    "$enum": "PageSize.LETTER"
+  },
+  "LEGAL": {
+    "$enum": "PageSize.LEGAL"
+  },
+  "LEDGER": {
+    "$enum": "PageSize.LEDGER"
+  }
+} as const)
+export const Tangency = Object.freeze({
+  "UNQUALIFIED": {
+    "$enum": "Tangency.UNQUALIFIED"
+  },
+  "ENCLOSING": {
+    "$enum": "Tangency.ENCLOSING"
+  },
+  "ENCLOSED": {
+    "$enum": "Tangency.ENCLOSED"
+  },
+  "OUTSIDE": {
+    "$enum": "Tangency.OUTSIDE"
+  }
+} as const)
+export const PositionMode = Object.freeze({
+  "LENGTH": {
+    "$enum": "PositionMode.LENGTH"
+  },
+  "PARAMETER": {
+    "$enum": "PositionMode.PARAMETER"
+  }
+} as const)
+export const PrecisionMode = Object.freeze({
+  "SESSION": {
+    "$enum": "PrecisionMode.SESSION"
+  },
+  "GREATEST": {
+    "$enum": "PrecisionMode.GREATEST"
+  },
+  "AVERAGE": {
+    "$enum": "PrecisionMode.AVERAGE"
+  },
+  "LEAST": {
+    "$enum": "PrecisionMode.LEAST"
+  }
+} as const)
+export const Select = Object.freeze({
+  "ALL": {
+    "$enum": "Select.ALL"
+  },
+  "LAST": {
+    "$enum": "Select.LAST"
+  },
+  "NEW": {
+    "$enum": "Select.NEW"
+  }
+} as const)
+export const Side = Object.freeze({
+  "LEFT": {
+    "$enum": "Side.LEFT"
+  },
+  "RIGHT": {
+    "$enum": "Side.RIGHT"
+  },
+  "BOTH": {
+    "$enum": "Side.BOTH"
+  }
+} as const)
+export const SortBy = Object.freeze({
+  "LENGTH": {
+    "$enum": "SortBy.LENGTH"
+  },
+  "RADIUS": {
+    "$enum": "SortBy.RADIUS"
+  },
+  "AREA": {
+    "$enum": "SortBy.AREA"
+  },
+  "VOLUME": {
+    "$enum": "SortBy.VOLUME"
+  },
+  "DISTANCE": {
+    "$enum": "SortBy.DISTANCE"
+  }
+} as const)
+export const TextAlign = Object.freeze({
+  "BOTTOM": {
+    "$enum": "TextAlign.BOTTOM"
+  },
+  "CENTER": {
+    "$enum": "TextAlign.CENTER"
+  },
+  "LEFT": {
+    "$enum": "TextAlign.LEFT"
+  },
+  "RIGHT": {
+    "$enum": "TextAlign.RIGHT"
+  },
+  "TOP": {
+    "$enum": "TextAlign.TOP"
+  },
+  "TOPFIRSTLINE": {
+    "$enum": "TextAlign.TOPFIRSTLINE"
+  }
+} as const)
+export const Transition = Object.freeze({
+  "RIGHT": {
+    "$enum": "Transition.RIGHT"
+  },
+  "ROUND": {
+    "$enum": "Transition.ROUND"
+  },
+  "TRANSFORMED": {
+    "$enum": "Transition.TRANSFORMED"
+  }
+} as const)
+export const Unit = Object.freeze({
+  "MC": {
+    "$enum": "Unit.MC"
+  },
+  "MM": {
+    "$enum": "Unit.MM"
+  },
+  "CM": {
+    "$enum": "Unit.CM"
+  },
+  "M": {
+    "$enum": "Unit.M"
+  },
+  "IN": {
+    "$enum": "Unit.IN"
+  },
+  "FT": {
+    "$enum": "Unit.FT"
+  },
+  "G": {
+    "$enum": "Unit.G"
+  },
+  "KG": {
+    "$enum": "Unit.KG"
+  },
+  "LB": {
+    "$enum": "Unit.LB"
+  }
+} as const)
+export const Until = Object.freeze({
+  "NEXT": {
+    "$enum": "Until.NEXT"
+  },
+  "LAST": {
+    "$enum": "Until.LAST"
+  },
+  "PREVIOUS": {
+    "$enum": "Until.PREVIOUS"
+  },
+  "FIRST": {
+    "$enum": "Until.FIRST"
+  }
+} as const)
+export const LineType = Object.freeze({
+  "CONTINUOUS": {
+    "$enum": "LineType.CONTINUOUS"
+  },
+  "BORDER": {
+    "$enum": "LineType.BORDER"
+  },
+  "BORDER2": {
+    "$enum": "LineType.BORDER2"
+  },
+  "BORDERX2": {
+    "$enum": "LineType.BORDERX2"
+  },
+  "CENTER": {
+    "$enum": "LineType.CENTER"
+  },
+  "CENTER2": {
+    "$enum": "LineType.CENTER2"
+  },
+  "CENTERX2": {
+    "$enum": "LineType.CENTERX2"
+  },
+  "DASHDOT": {
+    "$enum": "LineType.DASHDOT"
+  },
+  "DASHDOT2": {
+    "$enum": "LineType.DASHDOT2"
+  },
+  "DASHDOTX2": {
+    "$enum": "LineType.DASHDOTX2"
+  },
+  "DASHED": {
+    "$enum": "LineType.DASHED"
+  },
+  "DASHED2": {
+    "$enum": "LineType.DASHED2"
+  },
+  "DASHEDX2": {
+    "$enum": "LineType.DASHEDX2"
+  },
+  "DIVIDE": {
+    "$enum": "LineType.DIVIDE"
+  },
+  "DIVIDE2": {
+    "$enum": "LineType.DIVIDE2"
+  },
+  "DIVIDEX2": {
+    "$enum": "LineType.DIVIDEX2"
+  },
+  "DOT": {
+    "$enum": "LineType.DOT"
+  },
+  "DOT2": {
+    "$enum": "LineType.DOT2"
+  },
+  "DOTX2": {
+    "$enum": "LineType.DOTX2"
+  },
+  "HIDDEN": {
+    "$enum": "LineType.HIDDEN"
+  },
+  "HIDDEN2": {
+    "$enum": "LineType.HIDDEN2"
+  },
+  "HIDDENX2": {
+    "$enum": "LineType.HIDDENX2"
+  },
+  "PHANTOM": {
+    "$enum": "LineType.PHANTOM"
+  },
+  "PHANTOM2": {
+    "$enum": "LineType.PHANTOM2"
+  },
+  "PHANTOMX2": {
+    "$enum": "LineType.PHANTOMX2"
+  },
+  "ISO_DASH": {
+    "$enum": "LineType.ISO_DASH"
+  },
+  "ISO_DASH_SPACE": {
+    "$enum": "LineType.ISO_DASH_SPACE"
+  },
+  "ISO_LONG_DASH_DOT": {
+    "$enum": "LineType.ISO_LONG_DASH_DOT"
+  },
+  "ISO_LONG_DASH_DOUBLE_DOT": {
+    "$enum": "LineType.ISO_LONG_DASH_DOUBLE_DOT"
+  },
+  "ISO_LONG_DASH_TRIPLE_DOT": {
+    "$enum": "LineType.ISO_LONG_DASH_TRIPLE_DOT"
+  },
+  "ISO_DOT": {
+    "$enum": "LineType.ISO_DOT"
+  },
+  "ISO_LONG_DASH_SHORT_DASH": {
+    "$enum": "LineType.ISO_LONG_DASH_SHORT_DASH"
+  },
+  "ISO_LONG_DASH_DOUBLE_SHORT_DASH": {
+    "$enum": "LineType.ISO_LONG_DASH_DOUBLE_SHORT_DASH"
+  },
+  "ISO_DASH_DOT": {
+    "$enum": "LineType.ISO_DASH_DOT"
+  },
+  "ISO_DOUBLE_DASH_DOT": {
+    "$enum": "LineType.ISO_DOUBLE_DASH_DOT"
+  },
+  "ISO_DASH_DOUBLE_DOT": {
+    "$enum": "LineType.ISO_DASH_DOUBLE_DOT"
+  },
+  "ISO_DOUBLE_DASH_DOUBLE_DOT": {
+    "$enum": "LineType.ISO_DOUBLE_DASH_DOUBLE_DOT"
+  },
+  "ISO_DASH_TRIPLE_DOT": {
+    "$enum": "LineType.ISO_DASH_TRIPLE_DOT"
+  },
+  "ISO_DOUBLE_DASH_TRIPLE_DOT": {
+    "$enum": "LineType.ISO_DOUBLE_DASH_TRIPLE_DOT"
+  }
+} as const)
+export const DotLength = Object.freeze({
+  "TRUE_DOT": {
+    "$enum": "DotLength.TRUE_DOT"
+  },
+  "INKSCAPE_COMPAT": {
+    "$enum": "DotLength.INKSCAPE_COMPAT"
+  },
+  "QCAD_IMPERIAL": {
+    "$enum": "DotLength.QCAD_IMPERIAL"
+  }
+} as const)
+export const MC = Object.freeze(0.001)
+export const MM = Object.freeze(1)
+export const CM = Object.freeze(10)
+export const M = Object.freeze(1000)
+export const IN = Object.freeze(25.4)
+export const FT = Object.freeze(304.79999999999995)
+export const THOU = Object.freeze(0.0254)
+export const UNITS_PER_METER = Object.freeze({
+  "in": 39.37007874015748,
+  "ft": 3.280839895013124,
+  "\u00b5m": 1000000.0,
+  "mm": 1000.0,
+  "cm": 100.0,
+  "m": 1
+})
+export const G = Object.freeze(1)
+export const KG = Object.freeze(1000)
+export const G_PER_LB = Object.freeze(453.59237)
+export const LB = Object.freeze(453.59237)
+export const UNITS_PER_KILOGRAM = Object.freeze({
+  "g": 1000.0,
+  "kg": 1,
+  "lb": 2.2046226218487757
+})
+export const ColorIndex = Object.freeze({
+  "RED": {
+    "$enum": "ColorIndex.RED"
+  },
+  "YELLOW": {
+    "$enum": "ColorIndex.YELLOW"
+  },
+  "GREEN": {
+    "$enum": "ColorIndex.GREEN"
+  },
+  "CYAN": {
+    "$enum": "ColorIndex.CYAN"
+  },
+  "BLUE": {
+    "$enum": "ColorIndex.BLUE"
+  },
+  "MAGENTA": {
+    "$enum": "ColorIndex.MAGENTA"
+  },
+  "BLACK": {
+    "$enum": "ColorIndex.BLACK"
+  },
+  "GRAY": {
+    "$enum": "ColorIndex.GRAY"
+  },
+  "LIGHT_GRAY": {
+    "$enum": "ColorIndex.LIGHT_GRAY"
+  }
+} as const)
+export const RotationLike = Object.freeze({ $type: "RotationLike" } as const)
+export type RotationLike = NativeRotationLike
+export const VectorLike = Object.freeze({ $type: "VectorLike" } as const)
+export type VectorLike = NativeVectorLike
+export const native = {
+  HexLocations: createSymbol("HexLocations", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["HexLocations"], NativeClassMap<"HexLocations">["HexLocations"]['staticMethods'], NativeClassMap<"HexLocations">["HexLocations"]['staticProperties']>,
+  PolarLocations: createSymbol("PolarLocations", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["PolarLocations"], NativeClassMap<"PolarLocations">["PolarLocations"]['staticMethods'], NativeClassMap<"PolarLocations">["PolarLocations"]['staticProperties']>,
+  Locations: createSymbol("Locations", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["Locations"], NativeClassMap<"Locations">["Locations"]['staticMethods'], NativeClassMap<"Locations">["Locations"]['staticProperties']>,
+  GridLocations: createSymbol("GridLocations", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["GridLocations"], NativeClassMap<"GridLocations">["GridLocations"]['staticMethods'], NativeClassMap<"GridLocations">["GridLocations"]['staticProperties']>,
+  BuildLine: createSymbol("BuildLine", {"build123d_type": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["BuildLine"], NativeClassMap<"BuildLine">["BuildLine"]['staticMethods'], NativeClassMap<"BuildLine">["BuildLine"]['staticProperties']>,
+  BuildPart: createSymbol("BuildPart", {"build123d_type": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["BuildPart"], NativeClassMap<"BuildPart">["BuildPart"]['staticMethods'], NativeClassMap<"BuildPart">["BuildPart"]['staticProperties']>,
+  BuildSketch: createSymbol("BuildSketch", {"build123d_type": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["BuildSketch"], NativeClassMap<"BuildSketch">["BuildSketch"]['staticMethods'], NativeClassMap<"BuildSketch">["BuildSketch"]['staticProperties']>,
+  BaseCurveObject: createSymbol("BaseCurveObject", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_composite": "call", "make_text": "call", "make_triad": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "resolve_font": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["BaseCurveObject"], NativeClassMap<"BaseCurveObject">["BaseCurveObject"]['staticMethods'], NativeClassMap<"BaseCurveObject">["BaseCurveObject"]['staticProperties']>,
+  BaseEdgeObject: createSymbol("BaseEdgeObject", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_bezier": "call", "make_bspline": "call", "make_circle": "call", "make_composite": "call", "make_constrained_arcs": "call", "make_constrained_lines": "call", "make_ellipse": "call", "make_helix": "call", "make_hyperbola": "call", "make_line": "call", "make_mid_way": "call", "make_parabola": "call", "make_spline": "call", "make_spline_approx": "call", "make_tangent_arc": "call", "make_three_point_arc": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["BaseEdgeObject"], NativeClassMap<"BaseEdgeObject">["BaseEdgeObject"]['staticMethods'], NativeClassMap<"BaseEdgeObject">["BaseEdgeObject"]['staticProperties']>,
+  BaseLineObject: createSymbol("BaseLineObject", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combine": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_circle": "call", "make_composite": "call", "make_convex_hull": "call", "make_ellipse": "call", "make_polygon": "call", "make_rect": "call", "order": "value", "order_chamfer_edges": "call", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["BaseLineObject"], NativeClassMap<"BaseLineObject">["BaseLineObject"]['staticMethods'], NativeClassMap<"BaseLineObject">["BaseLineObject"]['staticProperties']>,
+  Airfoil: createSymbol("Airfoil", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combine": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_circle": "call", "make_composite": "call", "make_convex_hull": "call", "make_ellipse": "call", "make_polygon": "call", "make_rect": "call", "order": "value", "order_chamfer_edges": "call", "parse_naca4": "call", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["Airfoil"], NativeClassMap<"Airfoil">["Airfoil"]['staticMethods'], NativeClassMap<"Airfoil">["Airfoil"]['staticProperties']>,
+  Bezier: createSymbol("Bezier", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_bezier": "call", "make_bspline": "call", "make_circle": "call", "make_composite": "call", "make_constrained_arcs": "call", "make_constrained_lines": "call", "make_ellipse": "call", "make_helix": "call", "make_hyperbola": "call", "make_line": "call", "make_mid_way": "call", "make_parabola": "call", "make_spline": "call", "make_spline_approx": "call", "make_tangent_arc": "call", "make_three_point_arc": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["Bezier"], NativeClassMap<"Bezier">["Bezier"]['staticMethods'], NativeClassMap<"Bezier">["Bezier"]['staticProperties']>,
+  BlendCurve: createSymbol("BlendCurve", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_bezier": "call", "make_bspline": "call", "make_circle": "call", "make_composite": "call", "make_constrained_arcs": "call", "make_constrained_lines": "call", "make_ellipse": "call", "make_helix": "call", "make_hyperbola": "call", "make_line": "call", "make_mid_way": "call", "make_parabola": "call", "make_spline": "call", "make_spline_approx": "call", "make_tangent_arc": "call", "make_three_point_arc": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["BlendCurve"], NativeClassMap<"BlendCurve">["BlendCurve"]['staticMethods'], NativeClassMap<"BlendCurve">["BlendCurve"]['staticProperties']>,
+  BSpline: createSymbol("BSpline", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_bezier": "call", "make_bspline": "call", "make_circle": "call", "make_composite": "call", "make_constrained_arcs": "call", "make_constrained_lines": "call", "make_ellipse": "call", "make_helix": "call", "make_hyperbola": "call", "make_line": "call", "make_mid_way": "call", "make_parabola": "call", "make_spline": "call", "make_spline_approx": "call", "make_tangent_arc": "call", "make_three_point_arc": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["BSpline"], NativeClassMap<"BSpline">["BSpline"]['staticMethods'], NativeClassMap<"BSpline">["BSpline"]['staticProperties']>,
+  CenterArc: createSymbol("CenterArc", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_bezier": "call", "make_bspline": "call", "make_circle": "call", "make_composite": "call", "make_constrained_arcs": "call", "make_constrained_lines": "call", "make_ellipse": "call", "make_helix": "call", "make_hyperbola": "call", "make_line": "call", "make_mid_way": "call", "make_parabola": "call", "make_spline": "call", "make_spline_approx": "call", "make_tangent_arc": "call", "make_three_point_arc": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["CenterArc"], NativeClassMap<"CenterArc">["CenterArc"]['staticMethods'], NativeClassMap<"CenterArc">["CenterArc"]['staticProperties']>,
+  ConstrainedArcs: createSymbol("ConstrainedArcs", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_composite": "call", "make_text": "call", "make_triad": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "resolve_font": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["ConstrainedArcs"], NativeClassMap<"ConstrainedArcs">["ConstrainedArcs"]['staticMethods'], NativeClassMap<"ConstrainedArcs">["ConstrainedArcs"]['staticProperties']>,
+  ConstrainedLines: createSymbol("ConstrainedLines", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_composite": "call", "make_text": "call", "make_triad": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "resolve_font": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["ConstrainedLines"], NativeClassMap<"ConstrainedLines">["ConstrainedLines"]['staticMethods'], NativeClassMap<"ConstrainedLines">["ConstrainedLines"]['staticProperties']>,
+  DoubleTangentArc: createSymbol("DoubleTangentArc", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_bezier": "call", "make_bspline": "call", "make_circle": "call", "make_composite": "call", "make_constrained_arcs": "call", "make_constrained_lines": "call", "make_ellipse": "call", "make_helix": "call", "make_hyperbola": "call", "make_line": "call", "make_mid_way": "call", "make_parabola": "call", "make_spline": "call", "make_spline_approx": "call", "make_tangent_arc": "call", "make_three_point_arc": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["DoubleTangentArc"], NativeClassMap<"DoubleTangentArc">["DoubleTangentArc"]['staticMethods'], NativeClassMap<"DoubleTangentArc">["DoubleTangentArc"]['staticProperties']>,
+  EllipticalCenterArc: createSymbol("EllipticalCenterArc", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_bezier": "call", "make_bspline": "call", "make_circle": "call", "make_composite": "call", "make_constrained_arcs": "call", "make_constrained_lines": "call", "make_ellipse": "call", "make_helix": "call", "make_hyperbola": "call", "make_line": "call", "make_mid_way": "call", "make_parabola": "call", "make_spline": "call", "make_spline_approx": "call", "make_tangent_arc": "call", "make_three_point_arc": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["EllipticalCenterArc"], NativeClassMap<"EllipticalCenterArc">["EllipticalCenterArc"]['staticMethods'], NativeClassMap<"EllipticalCenterArc">["EllipticalCenterArc"]['staticProperties']>,
+  EllipticalStartArc: createSymbol("EllipticalStartArc", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_bezier": "call", "make_bspline": "call", "make_circle": "call", "make_composite": "call", "make_constrained_arcs": "call", "make_constrained_lines": "call", "make_ellipse": "call", "make_helix": "call", "make_hyperbola": "call", "make_line": "call", "make_mid_way": "call", "make_parabola": "call", "make_spline": "call", "make_spline_approx": "call", "make_tangent_arc": "call", "make_three_point_arc": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["EllipticalStartArc"], NativeClassMap<"EllipticalStartArc">["EllipticalStartArc"]['staticMethods'], NativeClassMap<"EllipticalStartArc">["EllipticalStartArc"]['staticProperties']>,
+  ParabolicCenterArc: createSymbol("ParabolicCenterArc", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_bezier": "call", "make_bspline": "call", "make_circle": "call", "make_composite": "call", "make_constrained_arcs": "call", "make_constrained_lines": "call", "make_ellipse": "call", "make_helix": "call", "make_hyperbola": "call", "make_line": "call", "make_mid_way": "call", "make_parabola": "call", "make_spline": "call", "make_spline_approx": "call", "make_tangent_arc": "call", "make_three_point_arc": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["ParabolicCenterArc"], NativeClassMap<"ParabolicCenterArc">["ParabolicCenterArc"]['staticMethods'], NativeClassMap<"ParabolicCenterArc">["ParabolicCenterArc"]['staticProperties']>,
+  HyperbolicCenterArc: createSymbol("HyperbolicCenterArc", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_bezier": "call", "make_bspline": "call", "make_circle": "call", "make_composite": "call", "make_constrained_arcs": "call", "make_constrained_lines": "call", "make_ellipse": "call", "make_helix": "call", "make_hyperbola": "call", "make_line": "call", "make_mid_way": "call", "make_parabola": "call", "make_spline": "call", "make_spline_approx": "call", "make_tangent_arc": "call", "make_three_point_arc": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["HyperbolicCenterArc"], NativeClassMap<"HyperbolicCenterArc">["HyperbolicCenterArc"]['staticMethods'], NativeClassMap<"HyperbolicCenterArc">["HyperbolicCenterArc"]['staticProperties']>,
+  FilletPolyline: createSymbol("FilletPolyline", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combine": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_circle": "call", "make_composite": "call", "make_convex_hull": "call", "make_ellipse": "call", "make_polygon": "call", "make_rect": "call", "order": "value", "order_chamfer_edges": "call", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["FilletPolyline"], NativeClassMap<"FilletPolyline">["FilletPolyline"]['staticMethods'], NativeClassMap<"FilletPolyline">["FilletPolyline"]['staticProperties']>,
+  Helix: createSymbol("Helix", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_bezier": "call", "make_bspline": "call", "make_circle": "call", "make_composite": "call", "make_constrained_arcs": "call", "make_constrained_lines": "call", "make_ellipse": "call", "make_helix": "call", "make_hyperbola": "call", "make_line": "call", "make_mid_way": "call", "make_parabola": "call", "make_spline": "call", "make_spline_approx": "call", "make_tangent_arc": "call", "make_three_point_arc": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["Helix"], NativeClassMap<"Helix">["Helix"]['staticMethods'], NativeClassMap<"Helix">["Helix"]['staticProperties']>,
+  IntersectingLine: createSymbol("IntersectingLine", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_bezier": "call", "make_bspline": "call", "make_circle": "call", "make_composite": "call", "make_constrained_arcs": "call", "make_constrained_lines": "call", "make_ellipse": "call", "make_helix": "call", "make_hyperbola": "call", "make_line": "call", "make_mid_way": "call", "make_parabola": "call", "make_spline": "call", "make_spline_approx": "call", "make_tangent_arc": "call", "make_three_point_arc": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["IntersectingLine"], NativeClassMap<"IntersectingLine">["IntersectingLine"]['staticMethods'], NativeClassMap<"IntersectingLine">["IntersectingLine"]['staticProperties']>,
+  Line: createSymbol("Line", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_bezier": "call", "make_bspline": "call", "make_circle": "call", "make_composite": "call", "make_constrained_arcs": "call", "make_constrained_lines": "call", "make_ellipse": "call", "make_helix": "call", "make_hyperbola": "call", "make_line": "call", "make_mid_way": "call", "make_parabola": "call", "make_spline": "call", "make_spline_approx": "call", "make_tangent_arc": "call", "make_three_point_arc": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["Line"], NativeClassMap<"Line">["Line"]['staticMethods'], NativeClassMap<"Line">["Line"]['staticProperties']>,
+  PolarLine: createSymbol("PolarLine", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_bezier": "call", "make_bspline": "call", "make_circle": "call", "make_composite": "call", "make_constrained_arcs": "call", "make_constrained_lines": "call", "make_ellipse": "call", "make_helix": "call", "make_hyperbola": "call", "make_line": "call", "make_mid_way": "call", "make_parabola": "call", "make_spline": "call", "make_spline_approx": "call", "make_tangent_arc": "call", "make_three_point_arc": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["PolarLine"], NativeClassMap<"PolarLine">["PolarLine"]['staticMethods'], NativeClassMap<"PolarLine">["PolarLine"]['staticProperties']>,
+  Polyline: createSymbol("Polyline", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combine": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_circle": "call", "make_composite": "call", "make_convex_hull": "call", "make_ellipse": "call", "make_polygon": "call", "make_rect": "call", "order": "value", "order_chamfer_edges": "call", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["Polyline"], NativeClassMap<"Polyline">["Polyline"]['staticMethods'], NativeClassMap<"Polyline">["Polyline"]['staticProperties']>,
+  RadiusArc: createSymbol("RadiusArc", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_bezier": "call", "make_bspline": "call", "make_circle": "call", "make_composite": "call", "make_constrained_arcs": "call", "make_constrained_lines": "call", "make_ellipse": "call", "make_helix": "call", "make_hyperbola": "call", "make_line": "call", "make_mid_way": "call", "make_parabola": "call", "make_spline": "call", "make_spline_approx": "call", "make_tangent_arc": "call", "make_three_point_arc": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["RadiusArc"], NativeClassMap<"RadiusArc">["RadiusArc"]['staticMethods'], NativeClassMap<"RadiusArc">["RadiusArc"]['staticProperties']>,
+  SagittaArc: createSymbol("SagittaArc", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_bezier": "call", "make_bspline": "call", "make_circle": "call", "make_composite": "call", "make_constrained_arcs": "call", "make_constrained_lines": "call", "make_ellipse": "call", "make_helix": "call", "make_hyperbola": "call", "make_line": "call", "make_mid_way": "call", "make_parabola": "call", "make_spline": "call", "make_spline_approx": "call", "make_tangent_arc": "call", "make_three_point_arc": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["SagittaArc"], NativeClassMap<"SagittaArc">["SagittaArc"]['staticMethods'], NativeClassMap<"SagittaArc">["SagittaArc"]['staticProperties']>,
+  Spline: createSymbol("Spline", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_bezier": "call", "make_bspline": "call", "make_circle": "call", "make_composite": "call", "make_constrained_arcs": "call", "make_constrained_lines": "call", "make_ellipse": "call", "make_helix": "call", "make_hyperbola": "call", "make_line": "call", "make_mid_way": "call", "make_parabola": "call", "make_spline": "call", "make_spline_approx": "call", "make_tangent_arc": "call", "make_three_point_arc": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["Spline"], NativeClassMap<"Spline">["Spline"]['staticMethods'], NativeClassMap<"Spline">["Spline"]['staticProperties']>,
+  TangentArc: createSymbol("TangentArc", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_bezier": "call", "make_bspline": "call", "make_circle": "call", "make_composite": "call", "make_constrained_arcs": "call", "make_constrained_lines": "call", "make_ellipse": "call", "make_helix": "call", "make_hyperbola": "call", "make_line": "call", "make_mid_way": "call", "make_parabola": "call", "make_spline": "call", "make_spline_approx": "call", "make_tangent_arc": "call", "make_three_point_arc": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["TangentArc"], NativeClassMap<"TangentArc">["TangentArc"]['staticMethods'], NativeClassMap<"TangentArc">["TangentArc"]['staticProperties']>,
+  JernArc: createSymbol("JernArc", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_bezier": "call", "make_bspline": "call", "make_circle": "call", "make_composite": "call", "make_constrained_arcs": "call", "make_constrained_lines": "call", "make_ellipse": "call", "make_helix": "call", "make_hyperbola": "call", "make_line": "call", "make_mid_way": "call", "make_parabola": "call", "make_spline": "call", "make_spline_approx": "call", "make_tangent_arc": "call", "make_three_point_arc": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["JernArc"], NativeClassMap<"JernArc">["JernArc"]['staticMethods'], NativeClassMap<"JernArc">["JernArc"]['staticProperties']>,
+  ThreePointArc: createSymbol("ThreePointArc", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_bezier": "call", "make_bspline": "call", "make_circle": "call", "make_composite": "call", "make_constrained_arcs": "call", "make_constrained_lines": "call", "make_ellipse": "call", "make_helix": "call", "make_hyperbola": "call", "make_line": "call", "make_mid_way": "call", "make_parabola": "call", "make_spline": "call", "make_spline_approx": "call", "make_tangent_arc": "call", "make_three_point_arc": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["ThreePointArc"], NativeClassMap<"ThreePointArc">["ThreePointArc"]['staticMethods'], NativeClassMap<"ThreePointArc">["ThreePointArc"]['staticProperties']>,
+  ArrowHead: createSymbol("ArrowHead", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_composite": "call", "make_text": "call", "make_triad": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "resolve_font": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["ArrowHead"], NativeClassMap<"ArrowHead">["ArrowHead"]['staticMethods'], NativeClassMap<"ArrowHead">["ArrowHead"]['staticProperties']>,
+  Arrow: createSymbol("Arrow", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_composite": "call", "make_text": "call", "make_triad": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "resolve_font": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["Arrow"], NativeClassMap<"Arrow">["Arrow"]['staticMethods'], NativeClassMap<"Arrow">["Arrow"]['staticProperties']>,
+  BaseSketchObject: createSymbol("BaseSketchObject", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_composite": "call", "make_text": "call", "make_triad": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "resolve_font": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["BaseSketchObject"], NativeClassMap<"BaseSketchObject">["BaseSketchObject"]['staticMethods'], NativeClassMap<"BaseSketchObject">["BaseSketchObject"]['staticProperties']>,
+  Circle: createSymbol("Circle", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_composite": "call", "make_text": "call", "make_triad": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "resolve_font": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["Circle"], NativeClassMap<"Circle">["Circle"]['staticMethods'], NativeClassMap<"Circle">["Circle"]['staticProperties']>,
+  Draft: createSymbol("Draft", {"arrow_length": "value", "decimal_precision": "value", "display_units": "value", "extension_gap": "value", "font": "value", "font_size": "value", "font_style": "value", "fractional_precision": "value", "head_type": "value", "line_width": "value", "number_display": "value", "pad_around_text": "value", "unit": "value", "unit_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["Draft"], NativeClassMap<"Draft">["Draft"]['staticMethods'], NativeClassMap<"Draft">["Draft"]['staticProperties']>,
+  DimensionLine: createSymbol("DimensionLine", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_composite": "call", "make_text": "call", "make_triad": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "resolve_font": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["DimensionLine"], NativeClassMap<"DimensionLine">["DimensionLine"]['staticMethods'], NativeClassMap<"DimensionLine">["DimensionLine"]['staticProperties']>,
+  Ellipse: createSymbol("Ellipse", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_composite": "call", "make_text": "call", "make_triad": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "resolve_font": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["Ellipse"], NativeClassMap<"Ellipse">["Ellipse"]['staticMethods'], NativeClassMap<"Ellipse">["Ellipse"]['staticProperties']>,
+  ExtensionLine: createSymbol("ExtensionLine", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_composite": "call", "make_text": "call", "make_triad": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "resolve_font": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["ExtensionLine"], NativeClassMap<"ExtensionLine">["ExtensionLine"]['staticMethods'], NativeClassMap<"ExtensionLine">["ExtensionLine"]['staticProperties']>,
+  Polygon: createSymbol("Polygon", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_composite": "call", "make_text": "call", "make_triad": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "resolve_font": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["Polygon"], NativeClassMap<"Polygon">["Polygon"]['staticMethods'], NativeClassMap<"Polygon">["Polygon"]['staticProperties']>,
+  Rectangle: createSymbol("Rectangle", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_composite": "call", "make_text": "call", "make_triad": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "resolve_font": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["Rectangle"], NativeClassMap<"Rectangle">["Rectangle"]['staticMethods'], NativeClassMap<"Rectangle">["Rectangle"]['staticProperties']>,
+  RectangleRounded: createSymbol("RectangleRounded", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_composite": "call", "make_text": "call", "make_triad": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "resolve_font": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["RectangleRounded"], NativeClassMap<"RectangleRounded">["RectangleRounded"]['staticMethods'], NativeClassMap<"RectangleRounded">["RectangleRounded"]['staticProperties']>,
+  RegularPolygon: createSymbol("RegularPolygon", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_composite": "call", "make_text": "call", "make_triad": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "resolve_font": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["RegularPolygon"], NativeClassMap<"RegularPolygon">["RegularPolygon"]['staticMethods'], NativeClassMap<"RegularPolygon">["RegularPolygon"]['staticProperties']>,
+  SlotArc: createSymbol("SlotArc", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_composite": "call", "make_text": "call", "make_triad": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "resolve_font": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["SlotArc"], NativeClassMap<"SlotArc">["SlotArc"]['staticMethods'], NativeClassMap<"SlotArc">["SlotArc"]['staticProperties']>,
+  SlotCenterPoint: createSymbol("SlotCenterPoint", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_composite": "call", "make_text": "call", "make_triad": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "resolve_font": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["SlotCenterPoint"], NativeClassMap<"SlotCenterPoint">["SlotCenterPoint"]['staticMethods'], NativeClassMap<"SlotCenterPoint">["SlotCenterPoint"]['staticProperties']>,
+  SlotCenterToCenter: createSymbol("SlotCenterToCenter", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_composite": "call", "make_text": "call", "make_triad": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "resolve_font": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["SlotCenterToCenter"], NativeClassMap<"SlotCenterToCenter">["SlotCenterToCenter"]['staticMethods'], NativeClassMap<"SlotCenterToCenter">["SlotCenterToCenter"]['staticProperties']>,
+  SlotOverall: createSymbol("SlotOverall", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_composite": "call", "make_text": "call", "make_triad": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "resolve_font": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["SlotOverall"], NativeClassMap<"SlotOverall">["SlotOverall"]['staticMethods'], NativeClassMap<"SlotOverall">["SlotOverall"]['staticProperties']>,
+  Superellipse: createSymbol("Superellipse", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_composite": "call", "make_text": "call", "make_triad": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "resolve_font": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["Superellipse"], NativeClassMap<"Superellipse">["Superellipse"]['staticMethods'], NativeClassMap<"Superellipse">["Superellipse"]['staticProperties']>,
+  Text: createSymbol("Text", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_composite": "call", "make_text": "call", "make_triad": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "resolve_font": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["Text"], NativeClassMap<"Text">["Text"]['staticMethods'], NativeClassMap<"Text">["Text"]['staticProperties']>,
+  TechnicalDrawing: createSymbol("TechnicalDrawing", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_composite": "call", "make_text": "call", "make_triad": "call", "margin": "value", "order": "value", "page_sizes": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "resolve_font": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["TechnicalDrawing"], NativeClassMap<"TechnicalDrawing">["TechnicalDrawing"]['staticMethods'], NativeClassMap<"TechnicalDrawing">["TechnicalDrawing"]['staticProperties']>,
+  Trapezoid: createSymbol("Trapezoid", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_composite": "call", "make_text": "call", "make_triad": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "resolve_font": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["Trapezoid"], NativeClassMap<"Trapezoid">["Trapezoid"]['staticMethods'], NativeClassMap<"Trapezoid">["Trapezoid"]['staticProperties']>,
+  Triangle: createSymbol("Triangle", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_composite": "call", "make_text": "call", "make_triad": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "resolve_font": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["Triangle"], NativeClassMap<"Triangle">["Triangle"]['staticMethods'], NativeClassMap<"Triangle">["Triangle"]['staticProperties']>,
+  BasePartObject: createSymbol("BasePartObject", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_composite": "call", "make_text": "call", "make_triad": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "resolve_font": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["BasePartObject"], NativeClassMap<"BasePartObject">["BasePartObject"]['staticMethods'], NativeClassMap<"BasePartObject">["BasePartObject"]['staticProperties']>,
+  Box: createSymbol("Box", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_composite": "call", "make_text": "call", "make_triad": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "resolve_font": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["Box"], NativeClassMap<"Box">["Box"]['staticMethods'], NativeClassMap<"Box">["Box"]['staticProperties']>,
+  Cone: createSymbol("Cone", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_composite": "call", "make_text": "call", "make_triad": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "resolve_font": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["Cone"], NativeClassMap<"Cone">["Cone"]['staticMethods'], NativeClassMap<"Cone">["Cone"]['staticProperties']>,
+  ConvexPolyhedron: createSymbol("ConvexPolyhedron", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_composite": "call", "make_text": "call", "make_triad": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "resolve_font": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["ConvexPolyhedron"], NativeClassMap<"ConvexPolyhedron">["ConvexPolyhedron"]['staticMethods'], NativeClassMap<"ConvexPolyhedron">["ConvexPolyhedron"]['staticProperties']>,
+  CounterBoreHole: createSymbol("CounterBoreHole", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_composite": "call", "make_text": "call", "make_triad": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "resolve_font": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["CounterBoreHole"], NativeClassMap<"CounterBoreHole">["CounterBoreHole"]['staticMethods'], NativeClassMap<"CounterBoreHole">["CounterBoreHole"]['staticProperties']>,
+  CounterSinkHole: createSymbol("CounterSinkHole", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_composite": "call", "make_text": "call", "make_triad": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "resolve_font": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["CounterSinkHole"], NativeClassMap<"CounterSinkHole">["CounterSinkHole"]['staticMethods'], NativeClassMap<"CounterSinkHole">["CounterSinkHole"]['staticProperties']>,
+  Cylinder: createSymbol("Cylinder", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_composite": "call", "make_text": "call", "make_triad": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "resolve_font": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["Cylinder"], NativeClassMap<"Cylinder">["Cylinder"]['staticMethods'], NativeClassMap<"Cylinder">["Cylinder"]['staticProperties']>,
+  Hole: createSymbol("Hole", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_composite": "call", "make_text": "call", "make_triad": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "resolve_font": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["Hole"], NativeClassMap<"Hole">["Hole"]['staticMethods'], NativeClassMap<"Hole">["Hole"]['staticProperties']>,
+  Sphere: createSymbol("Sphere", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_composite": "call", "make_text": "call", "make_triad": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "resolve_font": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["Sphere"], NativeClassMap<"Sphere">["Sphere"]['staticMethods'], NativeClassMap<"Sphere">["Sphere"]['staticProperties']>,
+  Torus: createSymbol("Torus", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_composite": "call", "make_text": "call", "make_triad": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "resolve_font": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["Torus"], NativeClassMap<"Torus">["Torus"]['staticMethods'], NativeClassMap<"Torus">["Torus"]['staticProperties']>,
+  Wedge: createSymbol("Wedge", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_composite": "call", "make_text": "call", "make_triad": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "resolve_font": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["Wedge"], NativeClassMap<"Wedge">["Wedge"]['staticMethods'], NativeClassMap<"Wedge">["Wedge"]['staticProperties']>,
+  BoundBox: createSymbol("BoundBox", {"find_outside_box_2d": "call", "from_topo_ds": "call"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["BoundBox"], NativeClassMap<"BoundBox">["BoundBox"]['staticMethods'], NativeClassMap<"BoundBox">["BoundBox"]['staticProperties']>,
+  OrientedBoundBox: createSymbol("OrientedBoundBox", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["OrientedBoundBox"], NativeClassMap<"OrientedBoundBox">["OrientedBoundBox"]['staticMethods'], NativeClassMap<"OrientedBoundBox">["OrientedBoundBox"]['staticProperties']>,
+  Rotation: createSymbol("Rotation", {"build123d_type": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["Rotation"], NativeClassMap<"Rotation">["Rotation"]['staticMethods'], NativeClassMap<"Rotation">["Rotation"]['staticProperties']>,
+  Rot: createSymbol("Rot", {"build123d_type": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["Rot"], NativeClassMap<"Rot">["Rot"]['staticMethods'], NativeClassMap<"Rot">["Rot"]['staticProperties']>,
+  Pos: createSymbol("Pos", {"build123d_type": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["Pos"], NativeClassMap<"Pos">["Pos"]['staticMethods'], NativeClassMap<"Pos">["Pos"]['staticProperties']>,
+  ShapeList: createSymbol("ShapeList", {"build123d_type": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["ShapeList"], NativeClassMap<"ShapeList">["ShapeList"]['staticMethods'], NativeClassMap<"ShapeList">["ShapeList"]['staticProperties']>,
+  Axis: createSymbol("Axis", {"X": "value", "Y": "value", "Z": "value", "build123d_type": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["Axis"], NativeClassMap<"Axis">["Axis"]['staticMethods'], NativeClassMap<"Axis">["Axis"]['staticProperties']>,
+  Color: createSymbol("Color", {"categorical_set": "call"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["Color"], NativeClassMap<"Color">["Color"]['staticMethods'], NativeClassMap<"Color">["Color"]['staticProperties']>,
+  Curve: createSymbol("Curve", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_composite": "call", "make_text": "call", "make_triad": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "resolve_font": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["Curve"], NativeClassMap<"Curve">["Curve"]['staticMethods'], NativeClassMap<"Curve">["Curve"]['staticProperties']>,
+  Vector: createSymbol("Vector", {"build123d_type": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["Vector"], NativeClassMap<"Vector">["Vector"]['staticMethods'], NativeClassMap<"Vector">["Vector"]['staticProperties']>,
+  Vertex: createSymbol("Vertex", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_composite": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["Vertex"], NativeClassMap<"Vertex">["Vertex"]['staticMethods'], NativeClassMap<"Vertex">["Vertex"]['staticProperties']>,
+  Edge: createSymbol("Edge", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_bezier": "call", "make_bspline": "call", "make_circle": "call", "make_composite": "call", "make_constrained_arcs": "call", "make_constrained_lines": "call", "make_ellipse": "call", "make_helix": "call", "make_hyperbola": "call", "make_line": "call", "make_mid_way": "call", "make_parabola": "call", "make_spline": "call", "make_spline_approx": "call", "make_tangent_arc": "call", "make_three_point_arc": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["Edge"], NativeClassMap<"Edge">["Edge"]['staticMethods'], NativeClassMap<"Edge">["Edge"]['staticProperties']>,
+  Wire: createSymbol("Wire", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combine": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_circle": "call", "make_composite": "call", "make_convex_hull": "call", "make_ellipse": "call", "make_polygon": "call", "make_rect": "call", "order": "value", "order_chamfer_edges": "call", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["Wire"], NativeClassMap<"Wire">["Wire"]['staticMethods'], NativeClassMap<"Wire">["Wire"]['staticProperties']>,
+  Face: createSymbol("Face", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_bezier_surface": "call", "make_composite": "call", "make_gordon_surface": "call", "make_rect": "call", "make_surface": "call", "make_surface_from_array_of_points": "call", "make_surface_from_curves": "call", "make_surface_patch": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "revolve": "call", "separator": "value", "sew_faces": "call", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value", "sweep": "call"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["Face"], NativeClassMap<"Face">["Face"]['staticMethods'], NativeClassMap<"Face">["Face"]['staticProperties']>,
+  Matrix: createSymbol("Matrix", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["Matrix"], NativeClassMap<"Matrix">["Matrix"]['staticMethods'], NativeClassMap<"Matrix">["Matrix"]['staticProperties']>,
+  Solid: createSymbol("Solid", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "extrude_linear_with_rotation": "call", "extrude_taper": "call", "extrude_until": "call", "from_bounding_box": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_box": "call", "make_composite": "call", "make_cone": "call", "make_cylinder": "call", "make_loft": "call", "make_sphere": "call", "make_torus": "call", "make_wedge": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "revolve": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value", "sweep": "call", "sweep_multi": "call", "thicken": "call"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["Solid"], NativeClassMap<"Solid">["Solid"]['staticMethods'], NativeClassMap<"Solid">["Solid"]['staticProperties']>,
+  Shell: createSymbol("Shell", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_composite": "call", "make_loft": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "revolve": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value", "sweep": "call"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["Shell"], NativeClassMap<"Shell">["Shell"]['staticMethods'], NativeClassMap<"Shell">["Shell"]['staticProperties']>,
+  Part: createSymbol("Part", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_composite": "call", "make_text": "call", "make_triad": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "resolve_font": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["Part"], NativeClassMap<"Part">["Part"]['staticMethods'], NativeClassMap<"Part">["Part"]['staticProperties']>,
+  Plane: createSymbol("Plane", {"XY": "value", "XZ": "value", "YX": "value", "YZ": "value", "ZX": "value", "ZY": "value", "back": "value", "bottom": "value", "build123d_type": "value", "front": "value", "get_topods_face_normal": "call", "isometric": "value", "left": "value", "right": "value", "top": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["Plane"], NativeClassMap<"Plane">["Plane"]['staticMethods'], NativeClassMap<"Plane">["Plane"]['staticProperties']>,
+  Compound: createSymbol("Compound", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_composite": "call", "make_text": "call", "make_triad": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "resolve_font": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["Compound"], NativeClassMap<"Compound">["Compound"]['staticMethods'], NativeClassMap<"Compound">["Compound"]['staticProperties']>,
+  Location: createSymbol("Location", {"build123d_type": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["Location"], NativeClassMap<"Location">["Location"]['staticMethods'], NativeClassMap<"Location">["Location"]['staticProperties']>,
+  GeomEncoder: createSymbol("GeomEncoder", {"geometry_hook": "call", "item_separator": "value", "key_separator": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["GeomEncoder"], NativeClassMap<"GeomEncoder">["GeomEncoder"]['staticMethods'], NativeClassMap<"GeomEncoder">["GeomEncoder"]['staticProperties']>,
+  Joint: createSymbol("Joint", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["Joint"], NativeClassMap<"Joint">["Joint"]['staticMethods'], NativeClassMap<"Joint">["Joint"]['staticProperties']>,
+  RigidJoint: createSymbol("RigidJoint", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["RigidJoint"], NativeClassMap<"RigidJoint">["RigidJoint"]['staticMethods'], NativeClassMap<"RigidJoint">["RigidJoint"]['staticProperties']>,
+  RevoluteJoint: createSymbol("RevoluteJoint", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["RevoluteJoint"], NativeClassMap<"RevoluteJoint">["RevoluteJoint"]['staticMethods'], NativeClassMap<"RevoluteJoint">["RevoluteJoint"]['staticProperties']>,
+  Sketch: createSymbol("Sketch", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_composite": "call", "make_text": "call", "make_triad": "call", "order": "value", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "resolve_font": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["Sketch"], NativeClassMap<"Sketch">["Sketch"]['staticMethods'], NativeClassMap<"Sketch">["Sketch"]['staticProperties']>,
+  LinearJoint: createSymbol("LinearJoint", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["LinearJoint"], NativeClassMap<"LinearJoint">["LinearJoint"]['staticMethods'], NativeClassMap<"LinearJoint">["LinearJoint"]['staticProperties']>,
+  CylindricalJoint: createSymbol("CylindricalJoint", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["CylindricalJoint"], NativeClassMap<"CylindricalJoint">["CylindricalJoint"]['staticMethods'], NativeClassMap<"CylindricalJoint">["CylindricalJoint"]['staticProperties']>,
+  BallJoint: createSymbol("BallJoint", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["BallJoint"], NativeClassMap<"BallJoint">["BallJoint"]['staticMethods'], NativeClassMap<"BallJoint">["BallJoint"]['staticProperties']>,
+  DraftAngleError: createSymbol("DraftAngleError", {"args": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["DraftAngleError"], NativeClassMap<"DraftAngleError">["DraftAngleError"]['staticMethods'], NativeClassMap<"DraftAngleError">["DraftAngleError"]['staticProperties']>,
+  FontManager: createSymbol("FontManager", {"bundled_fonts": "value", "bundled_path": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["FontManager"], NativeClassMap<"FontManager">["FontManager"]['staticMethods'], NativeClassMap<"FontManager">["FontManager"]['staticProperties']>,
+  Export2D: createSymbol("Export2D", {"DEFAULT_COLOR_INDEX": "value", "DEFAULT_LINE_TYPE": "value", "DEFAULT_LINE_WEIGHT": "value", "LINETYPE_DEFS": "value", "LTYPE_SCALE": "value", "PARAMETRIC_TOLERANCE": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["Export2D"], NativeClassMap<"Export2D">["Export2D"]['staticMethods'], NativeClassMap<"Export2D">["Export2D"]['staticProperties']>,
+  ExportDXF: createSymbol("ExportDXF", {"DEFAULT_COLOR_INDEX": "value", "DEFAULT_LINE_TYPE": "value", "DEFAULT_LINE_WEIGHT": "value", "LINETYPE_DEFS": "value", "LTYPE_SCALE": "value", "METRIC_UNITS": "value", "PARAMETRIC_TOLERANCE": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["ExportDXF"], NativeClassMap<"ExportDXF">["ExportDXF"]['staticMethods'], NativeClassMap<"ExportDXF">["ExportDXF"]['staticProperties']>,
+  ExportSVG: createSymbol("ExportSVG", {"DEFAULT_COLOR_INDEX": "value", "DEFAULT_LINE_TYPE": "value", "DEFAULT_LINE_WEIGHT": "value", "LINETYPE_DEFS": "value", "LTYPE_SCALE": "value", "PARAMETRIC_TOLERANCE": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["ExportSVG"], NativeClassMap<"ExportSVG">["ExportSVG"]['staticMethods'], NativeClassMap<"ExportSVG">["ExportSVG"]['staticProperties']>,
+  Mesher: createSymbol("Mesher", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["Mesher"], NativeClassMap<"Mesher">["Mesher"]['staticMethods'], NativeClassMap<"Mesher">["Mesher"]['staticProperties']>,
+  topo_distance_to: createSymbol("topo_distance_to", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["topo_distance_to"]>,
+  detect_primitives: createSymbol("detect_primitives", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["detect_primitives"]>,
+  import_brep: createSymbol("import_brep", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["import_brep"]>,
+  import_dxf: createSymbol("import_dxf", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["import_dxf"]>,
+  import_step: createSymbol("import_step", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["import_step"]>,
+  import_stl: createSymbol("import_stl", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["import_stl"]>,
+  import_svg: createSymbol("import_svg", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["import_svg"]>,
+  import_svg_as_buildline_code: createSymbol("import_svg_as_buildline_code", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["import_svg_as_buildline_code"]>,
+  delta: createSymbol("delta", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["delta"]>,
+  edges_to_wires: createSymbol("edges_to_wires", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["edges_to_wires"]>,
+  new_edges: createSymbol("new_edges", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["new_edges"]>,
+  pack: createSymbol("pack", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["pack"]>,
+  polar: createSymbol("polar", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["polar"]>,
+  available_fonts: createSymbol("available_fonts", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["available_fonts"]>,
+  solids: createSymbol("solids", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["solids"]>,
+  faces: createSymbol("faces", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["faces"]>,
+  wires: createSymbol("wires", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["wires"]>,
+  edges: createSymbol("edges", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["edges"]>,
+  vertices: createSymbol("vertices", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["vertices"]>,
+  solid: createSymbol("solid", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["solid"]>,
+  face: createSymbol("face", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["face"]>,
+  wire: createSymbol("wire", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["wire"]>,
+  edge: createSymbol("edge", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["edge"]>,
+  vertex: createSymbol("vertex", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["vertex"]>,
+  add: createSymbol("add", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["add"]>,
+  insert: createSymbol("insert", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["insert"]>,
+  bounding_box: createSymbol("bounding_box", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["bounding_box"]>,
+  chamfer: createSymbol("chamfer", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["chamfer"]>,
+  draft: createSymbol("draft", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["draft"]>,
+  extrude: createSymbol("extrude", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["extrude"]>,
+  fillet: createSymbol("fillet", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["fillet"]>,
+  full_round: createSymbol("full_round", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["full_round"]>,
+  loft: createSymbol("loft", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["loft"]>,
+  make_brake_formed: createSymbol("make_brake_formed", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["make_brake_formed"]>,
+  make_face: createSymbol("make_face", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["make_face"]>,
+  make_hull: createSymbol("make_hull", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["make_hull"]>,
+  mirror: createSymbol("mirror", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["mirror"]>,
+  offset: createSymbol("offset", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["offset"]>,
+  project: createSymbol("project", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["project"]>,
+  project_workplane: createSymbol("project_workplane", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["project_workplane"]>,
+  revolve: createSymbol("revolve", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["revolve"]>,
+  scale: createSymbol("scale", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["scale"]>,
+  section: createSymbol("section", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["section"]>,
+  split: createSymbol("split", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["split"]>,
+  sweep: createSymbol("sweep", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["sweep"]>,
+  thicken: createSymbol("thicken", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["thicken"]>,
+  trace: createSymbol("trace", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["trace"]>,
+  topo_explore_connected_edges: createSymbol("topo_explore_connected_edges", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["topo_explore_connected_edges"]>,
+  topo_explore_common_vertex: createSymbol("topo_explore_common_vertex", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["topo_explore_common_vertex"]>,
+  export_step: createSymbol("export_step", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["export_step"]>,
+  export_gltf: createSymbol("export_gltf", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["export_gltf"]>,
+  export_stl: createSymbol("export_stl", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["export_stl"]>,
+  export_brep: createSymbol("export_brep", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["export_brep"]>,
+  export_obj: createSymbol("export_obj", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["export_obj"]>,
+  export_to_pcbway: createSymbol("export_to_pcbway", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["export_to_pcbway"]>,
+  Shape: createSymbol("Shape", {"as_shape": "call", "build123d_type": "value", "cast": "call", "combined_center": "call", "composite_factories": "value", "downcast_LUT": "value", "extrude": "call", "geom_LUT_EDGE": "value", "geom_LUT_FACE": "value", "geometry_constructors": "value", "get_shape_list": "call", "get_single_shape": "call", "inverse_shape_LUT": "value", "make_composite": "call", "register_composite_factory": "call", "register_geometry_constructor": "call", "register_shape_constructor": "call", "separator": "value", "shape_LUT": "value", "shape_constructors": "value", "shape_properties_LUT": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["Shape"], NativeClassMap<"Shape">["Shape"]['staticMethods'], NativeClassMap<"Shape">["Shape"]['staticProperties']>,
+  BytesIO: createSymbol("BytesIO", {} as const) as unknown as NativeSymbolFactory<NativeCallableMap["BytesIO"], NativeClassMap<"BytesIO">["BytesIO"]['staticMethods'], NativeClassMap<"BytesIO">["BytesIO"]['staticProperties']>,
+  StringIO: createSymbol("StringIO", {"encoding": "value", "errors": "value", "line_buffering": "value", "newlines": "value"} as const) as unknown as NativeSymbolFactory<NativeCallableMap["StringIO"], NativeClassMap<"StringIO">["StringIO"]['staticMethods'], NativeClassMap<"StringIO">["StringIO"]['staticProperties']>,
+} as const
+export const values = { ...native, Align, ApproxOption, AngularDirection, CenterOf, ContinuityLevel, Convexity, Extrinsic, FontStyle, FrameMethod, GeomType, HeadType, Intrinsic, Keep, Kind, Sagitta, LengthMode, MeshType, Mode, NumberDisplay, PageSize, Tangency, PositionMode, PrecisionMode, Select, Side, SortBy, TextAlign, Transition, Unit, Until, LineType, DotLength, MC, MM, CM, M, IN, FT, THOU, UNITS_PER_METER, G, KG, G_PER_LB, LB, UNITS_PER_KILOGRAM, RotationLike, VectorLike, ColorIndex } as const
+export type * from './api-types'
+export const Draft = native.Draft
+export const BoundBox = native.BoundBox
+export const OrientedBoundBox = native.OrientedBoundBox
+export const Rotation = native.Rotation
+export const Rot = native.Rot
+export const Pos = native.Pos
+export const ShapeList = native.ShapeList
+export const Axis = native.Axis
+export const Color = native.Color
+export const Vector = native.Vector
+export const Matrix = native.Matrix
+export const Plane = native.Plane
+export const Location = native.Location
+export const GeomEncoder = native.GeomEncoder
+export const Joint = native.Joint
+export const RigidJoint = native.RigidJoint
+export const RevoluteJoint = native.RevoluteJoint
+export const LinearJoint = native.LinearJoint
+export const CylindricalJoint = native.CylindricalJoint
+export const BallJoint = native.BallJoint
+export const DraftAngleError = native.DraftAngleError
+export const FontManager = native.FontManager
+export const Export2D = native.Export2D
+export const ExportDXF = native.ExportDXF
+export const ExportSVG = native.ExportSVG
+export const Mesher = native.Mesher

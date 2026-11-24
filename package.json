@@ -1,0 +1,106 @@
+{
+  "name": "@tscircuit/b123-fiber",
+  "version": "0.3.0",
+  "description": "React CAD renderer with build123d-compatible bindings and browser OpenCascade WebAssembly",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tscircuit/b123-fiber"
+  },
+  "files": [
+    "dist",
+    "assets",
+    "ARCHITECTURE.md",
+    "README.md",
+    "docs",
+    "THIRD_PARTY_NOTICES.md"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./headless": {
+      "types": "./dist/headless.d.ts",
+      "import": "./dist/headless.js"
+    },
+    "./three": {
+      "types": "./dist/three.d.ts",
+      "import": "./dist/three.js"
+    },
+    "./client": {
+      "types": "./dist/client.d.ts",
+      "import": "./dist/client.js"
+    },
+    "./native": {
+      "types": "./dist/generated/values.d.ts",
+      "import": "./dist/generated/values.js"
+    },
+    "./cdn": {
+      "types": "./dist/cdn.d.ts",
+      "import": "./dist/cdn.js"
+    },
+    "./kernel": {
+      "types": "./dist/kernel/index.d.ts",
+      "import": "./dist/kernel/index.js"
+    },
+    "./opencascade.wasm": "./dist/opencascade.wasm",
+    "./font": "./dist/DejaVuSans.ttf"
+  },
+  "scripts": {
+    "prepare": "npm run build",
+    "build": "tsup lib/index.ts lib/headless.ts lib/three.ts lib/client.ts lib/kernel/index.ts lib/generated/values.ts --format esm --dts --sourcemap --clean && node scripts/copy-kernel-assets.mjs && node scripts/build-cdn.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --exclude 'tests/visual/**'",
+    "test:visual": "node scripts/visual-test.mjs",
+    "test:cdn": "node --use-env-proxy tests/cdn.browser.mjs",
+    "dev": "vite --host 127.0.0.1",
+    "sandbox:dev": "vite --config sandbox/vite.config.ts --host 127.0.0.1",
+    "sandbox:build": "tsc --noEmit -p sandbox/tsconfig.json && vite build --config sandbox/vite.config.ts",
+    "sandbox:generate": "node sandbox/scripts/generate-models.mjs",
+    "test:sandbox": "node --use-env-proxy scripts/test-sandbox.mjs",
+    "test:sandbox:editor": "node --use-env-proxy scripts/test-sandbox-editor.mjs",
+    "check:api": "node scripts/check-api.mjs",
+    "test:browser:fixtures": "node scripts/browser-fixture-audit.mjs",
+    "test:kernel:minified": "node scripts/test-minified-kernel.mjs"
+  },
+  "peerDependencies": {
+    "react": "^19.2.0",
+    "three": ">=0.170.0"
+  },
+  "dependencies": {
+    "fflate": "0.8.3",
+    "react-reconciler": "0.33.0",
+    "replicad": "1.1.0",
+    "replicad-opencascadejs": "1.1.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.0",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^22.0.0",
+    "@types/pngjs": "^6.0.5",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@types/react-reconciler": "^0.33.0",
+    "@types/three": "^0.180.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "esbuild": "0.27.7",
+    "esbuild-wasm": "0.27.7",
+    "pixelmatch": "^7.1.0",
+    "pngjs": "^7.0.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "tailwindcss": "^4.3.3",
+    "three": "^0.180.0",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.0",
+    "vite": "^7.1.0",
+    "vitest": "^3.2.0"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
+}
